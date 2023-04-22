@@ -13,12 +13,14 @@ public class FlipToHazardPlatform : MonoBehaviour
     {
         if (!canRotate)
             return;
+        
+        // If Platform has rotated 180 Degrees, call the StopPlatformRotation coroutine to halt it for a moment...
+        if (Mathf.Floor(transform.rotation.eulerAngles.z) % targetAngle == 0)
+            StartCoroutine(StopPlatformRotation());
 
         // Rotate The Platform
         transform.Rotate(0,0,rotationSpeed * Time.deltaTime);
-        // If Platform has rotated 180 Degrees, call the StopPlatformRotation coroutine to halt it for a moment...
-        if (Mathf.Floor(transform.rotation.eulerAngles.z) == targetAngle)
-            StartCoroutine(StopPlatformRotation());
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,10 +32,6 @@ public class FlipToHazardPlatform : MonoBehaviour
 
     IEnumerator StopPlatformRotation()
     {
-        // Snap to current target rotation
-        transform.rotation = Quaternion.Euler(0, 0, targetAngle);
-        // Set alternate target angle (0 or 180)
-        targetAngle = (targetAngle == 0) ? 180 : 0;
         // Stops Rotation
         canRotate = false;
         // Wait for specified seconds

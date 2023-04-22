@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2000132198130640705}
   - component: {fileID: 2000132198130640704}
   - component: {fileID: 2000132198130640707}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Blade
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109a3737c8a4ee54cb6dacd04cecbe2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 10
-  movementSpeed: 10
+  rotationSpeed: 50
+  movementSpeed: 1.5
   startPoint: {fileID: 2000132199757583893}
   endPoint: {fileID: 2000132199915050292}
 --- !u!1 &2000132199757583890
